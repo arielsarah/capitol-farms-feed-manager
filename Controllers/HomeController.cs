@@ -17,14 +17,14 @@ namespace CapitolFarmsProject.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "This is the feed management program for Capitol Farms.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Contact Ariel Tuley for questions regarding this program.";
 
             return View();
         }
@@ -38,6 +38,34 @@ namespace CapitolFarmsProject.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Horses()
+        {
+            ViewData["Message"] = "Master List of Horses";
+
+            return View();
+        }
+
+        public IActionResult Grains()
+        {
+            ViewData["Message"] = "Master List of Grains";
+
+            return View();
+        }
+
+        public IActionResult Users()
+        {
+            ViewData["Message"] = "Master List of Users";
+
+            return View();
+        }
+
+        public IActionResult Reports()
+        {
+            ViewData["Message"] = "Report List";
+
+            return View();
         }
     }
 }
