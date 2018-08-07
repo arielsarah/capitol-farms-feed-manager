@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Models.Grain
+namespace CapitolFarmsProject.Models
 {
     public class Grain
     {
