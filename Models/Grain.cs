@@ -6,7 +6,7 @@ namespace CapitolFarmsProject.Models
     {
         public int GrainId {get; set;}
         public string GrainName {get; set;}
-        public List<Horse> Horses {get; set;}
-        public decimal amount {get; set;}
+        public List<HorseGrain> HorseGrains {get; set;}
+        
     }
 }

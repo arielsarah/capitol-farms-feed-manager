@@ -8,6 +8,6 @@ namespace CapitolFarmsProject.Models
         public int HorseId {get; set;}
         public string HorseName {get; set;}
         public int Location {get; set;}
-        public List<Grain> Grains {get; set;}
+        public List<HorseGrain> HorseGrains {get; set;}
     }
 }
