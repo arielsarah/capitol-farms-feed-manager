@@ -1,4 +1,5 @@
 #Ignore database
+
 CapitolFarmsProject.db
 CapitolFarmsProject.db-journal
 
@@ -332,7 +333,5 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
 
-# Local History for Visual Studio
-.localhistory/
-*.db
-CapitolFarmsProject.db
+
+
