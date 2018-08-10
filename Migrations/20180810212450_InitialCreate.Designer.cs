@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapitolFarmsProject.Migrations
 {
     [DbContext(typeof(CapitolFarmsProjectContext))]
-    [Migration("20180809184441_InitialCreate")]
+    [Migration("20180810212450_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,13 +54,15 @@ namespace CapitolFarmsProject.Migrations
                     b.Property<int>("HorseGrainId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("AMReport");
+
                     b.Property<decimal>("Amount");
 
                     b.Property<int?>("GrainId");
 
                     b.Property<int?>("HorseId");
 
-                    b.Property<int>("ReportTime");
+                    b.Property<bool>("PMReport");
 
                     b.HasKey("HorseGrainId");
 

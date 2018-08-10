@@ -43,7 +43,8 @@ namespace CapitolFarmsProject.Migrations
                     HorseGrainId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Amount = table.Column<decimal>(nullable: false),
-                    ReportTime = table.Column<int>(nullable: false),
+                    AMReport = table.Column<bool>(nullable: false),
+                    PMReport = table.Column<bool>(nullable: false),
                     HorseId = table.Column<int>(nullable: true),
                     GrainId = table.Column<int>(nullable: true)
                 },
