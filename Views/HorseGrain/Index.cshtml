@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.Amount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReportTime)
+                @Html.DisplayNameFor(model => model.AMReport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PMReport)
             </th>
             <th></th>
         </tr>
@@ -28,7 +31,10 @@
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReportTime)
+                @Html.DisplayFor(modelItem => item.AMReport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PMReport)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.HorseGrainId">Edit</a> |

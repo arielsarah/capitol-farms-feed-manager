@@ -19,9 +19,18 @@
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReportTime" class="control-label"></label>
-                <select asp-for="ReportTime" class="form-control"></select>
-                <span asp-validation-for="ReportTime" class="text-danger"></span>
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AMReport" /> @Html.DisplayNameFor(model => model.AMReport)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="PMReport" /> @Html.DisplayNameFor(model => model.PMReport)
+                    </label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
