@@ -9,7 +9,7 @@ namespace CapitolFarmsProject.Models
         public int HorseId {get; set;}
         public string HorseName {get; set;}
         public int Location {get; set;}
-        public List<HorseGrain> HorseGrains {get; set;}
+        public ICollection<HorseGrain> HorseGrains {get; set;}
         
         [Column(TypeName = "text")]
         public string Notes {get; set;}
