@@ -16,6 +16,9 @@
                 <label asp-for="Amount" class="control-label"></label>
                 <input asp-for="Amount" class="form-control" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
+                <label asp-for="HorseGrain.Amount" class="control-label"></label>
+                <input asp-for="HorseGrain.Amount" class="form-control" />
+                <span asp-validation-for="HorseGrain.Amount" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="checkbox">
@@ -30,6 +33,16 @@
                         <input asp-for="PMReport" /> @Html.DisplayNameFor(model => model.PMReport)
                     </label>
                 </div>
+            </div>
+            <div class="form-group">
+                <select asp-for="HorseGrain.Horse" asp-items="Model.Horses">
+                    <option value="">None</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select asp-for="HorseGrain.Grain" asp-items="Model.Grains">
+                    <option value="">None</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

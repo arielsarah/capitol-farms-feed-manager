@@ -53,7 +53,7 @@ namespace CapitolFarmsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HorseGrainId,Amount,AMReport,PMReport")] HorseGrain horseGrain)
+        public async Task<IActionResult> Create([Bind("HorseGrainId,Amount,AMReport,PMReport,Horse,Grain")] HorseGrain horseGrain)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace CapitolFarmsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HorseGrainId,Amount,AMReport,PMReport")] HorseGrain horseGrain)
+        public async Task<IActionResult> Edit(int id, [Bind("HorseGrainId,Amount,AMReport,PMReport,Horse,Grain")] HorseGrain horseGrain)
         {
             if (id != horseGrain.HorseGrainId)
             {
