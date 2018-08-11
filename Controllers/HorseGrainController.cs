@@ -21,7 +21,7 @@ namespace CapitolFarmsProject.Controllers
         // GET: HorseGrain
         public async Task<IActionResult> Index()
         {
-            return View(await _context.HorseGrain.ToListAsync());
+            return View(await _context.HorseGrain.Include(hg => hg.Grain).Include(hg => hg.Horse).ToListAsync());
         }
 
         // GET: HorseGrain/Details/5
