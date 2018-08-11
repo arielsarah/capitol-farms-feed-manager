@@ -19,12 +19,12 @@ namespace CapitolFarmsProject.Models
             HorseGrain = horseGrain;
             var horseQuery = from h in context.Horse
                                     orderby h.HorseName
-                                    select h.HorseName;
-            Horses = new SelectList(horseQuery.Distinct().ToList());
+                                    select new {h.HorseName, h.HorseId};
+            Horses = new SelectList(horseQuery.Distinct().ToList(), "HorseId", "HorseName");
             var grainQuery = from g in context.Grain
                                     orderby g.GrainName
-                                    select g.GrainName;
-            Grains = new SelectList(grainQuery.Distinct().ToList());
+                                    select new {g.GrainName, g.GrainId};
+            Grains = new SelectList(grainQuery.Distinct().ToList(), "GrainId", "GrainName");
         }
         
     }
