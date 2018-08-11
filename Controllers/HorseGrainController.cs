@@ -45,7 +45,9 @@ namespace CapitolFarmsProject.Controllers
         // GET: HorseGrain/Create
         public IActionResult Create()
         {
-            return View();
+            
+
+            return View(new HorseGrainViewModel(_context));
         }
 
         // POST: HorseGrain/Create
