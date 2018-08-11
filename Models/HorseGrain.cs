@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CapitolFarmsProject.Models
 {
-    public class HorseGrain
+    public partial class HorseGrain
     {
         public int HorseGrainId {get; set;}
 
@@ -13,6 +13,8 @@ namespace CapitolFarmsProject.Models
         public bool AMReport {get; set;}
         public bool PMReport {get; set;}
         public Horse Horse {get; set;}
+        public int? HorseId {get; set;}
         public Grain Grain {get; set;}
+        public int? GrainId {get; set;}
     }
 }

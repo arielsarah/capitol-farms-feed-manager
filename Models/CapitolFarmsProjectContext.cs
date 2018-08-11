@@ -13,5 +13,17 @@ namespace CapitolFarmsProject.Models
         public DbSet<CapitolFarmsProject.Models.Grain> Grain { get; set; }
         public DbSet<CapitolFarmsProject.Models.HorseGrain> HorseGrain { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<HorseGrain>(entity =>
+            {
+                entity.HasOne(d => d.Horse)
+                    .WithMany(p => p.HorseGrains)
+                    .HasForeignKey(d => d.HorseId);
+                entity.HasOne(d => d.Grain)
+                    .WithMany(p => p.HorseGrains)
+                    .HasForeignKey(d => d.GrainId);    
+            });
+        }
     }
 }
