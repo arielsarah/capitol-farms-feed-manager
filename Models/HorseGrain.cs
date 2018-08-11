@@ -13,8 +13,8 @@ namespace CapitolFarmsProject.Models
         public bool AMReport {get; set;}
         public bool PMReport {get; set;}
         public Horse Horse {get; set;}
-        public int? HorseId {get; set;}
+        public int HorseId {get; set;}
         public Grain Grain {get; set;}
-        public int? GrainId {get; set;}
+        public int GrainId {get; set;}
     }
 }

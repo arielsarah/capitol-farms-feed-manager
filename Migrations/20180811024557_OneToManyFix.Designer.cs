@@ -3,14 +3,16 @@ using System;
 using CapitolFarmsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CapitolFarmsProject.Migrations
 {
     [DbContext(typeof(CapitolFarmsProjectContext))]
-    partial class CapitolFarmsProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20180811024557_OneToManyFix")]
+    partial class OneToManyFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,9 +58,9 @@ namespace CapitolFarmsProject.Migrations
 
                     b.Property<decimal>("Amount");
 
-                    b.Property<int>("GrainId");
+                    b.Property<int?>("GrainId");
 
-                    b.Property<int>("HorseId");
+                    b.Property<int?>("HorseId");
 
                     b.Property<bool>("PMReport");
 
@@ -75,13 +77,11 @@ namespace CapitolFarmsProject.Migrations
                 {
                     b.HasOne("CapitolFarmsProject.Models.Grain", "Grain")
                         .WithMany("HorseGrains")
-                        .HasForeignKey("GrainId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GrainId");
 
                     b.HasOne("CapitolFarmsProject.Models.Horse", "Horse")
                         .WithMany("HorseGrains")
-                        .HasForeignKey("HorseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("HorseId");
                 });
 #pragma warning restore 612, 618
         }
