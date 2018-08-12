@@ -125,7 +125,7 @@ namespace CapitolFarmsProject.Controllers
                 return NotFound();
             }
 
-            var horseGrain = await _context.HorseGrain
+            var horseGrain = await _context.HorseGrain.Include(hg => hg.Grain).Include(hg => hg.Horse)
                 .FirstOrDefaultAsync(m => m.HorseGrainId == id);
             if (horseGrain == null)
             {
