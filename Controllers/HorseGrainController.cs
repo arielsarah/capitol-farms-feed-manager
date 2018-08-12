@@ -79,7 +79,7 @@ namespace CapitolFarmsProject.Controllers
             {
                 return NotFound();
             }
-            return View(horseGrain);
+            return View(new HorseGrainViewModel(_context, horseGrain));
         }
 
         // POST: HorseGrain/Edit/5
@@ -87,7 +87,7 @@ namespace CapitolFarmsProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HorseGrainId,Amount,AMReport,PMReport,Horse,Grain")] HorseGrain horseGrain)
+        public async Task<IActionResult> Edit(int id, [Bind("HorseGrainId,Amount,AMReport,PMReport,HorseId,GrainId")] HorseGrain horseGrain)
         {
             if (id != horseGrain.HorseGrainId)
             {
