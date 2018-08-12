@@ -11,6 +11,18 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Horse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Horse.HorseName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Grain)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Grain.GrainName)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Amount)
         </dt>
         <dd>
