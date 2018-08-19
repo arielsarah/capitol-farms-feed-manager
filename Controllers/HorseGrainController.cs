@@ -25,6 +25,7 @@ namespace CapitolFarmsProject.Controllers
                                       .Include(hg => hg.Grain)
                                       .Include(hg => hg.Horse)
                                       .OrderBy(hg => hg.Horse.HorseName)
+                                      .ThenBy(hg => hg.Grain.GrainName)
                                       .ToListAsync());
         }
 
