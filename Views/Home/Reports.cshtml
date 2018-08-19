@@ -1,0 +1,49 @@
+@model IEnumerable<CapitolFarmsProject.Models.HorseGrain>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Horse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AMReport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PMReport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Horse.HorseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+                @Html.DisplayFor(modelItem => item.Grain.GrainName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AMReport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PMReport)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

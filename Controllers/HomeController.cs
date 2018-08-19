@@ -4,12 +4,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using CapitolFarmsProject.Models;
 
 namespace CapitolFarmsProject.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly CapitolFarmsProjectContext _context;
+
+        public HomeController(CapitolFarmsProjectContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -40,20 +47,6 @@ namespace CapitolFarmsProject.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Horses()
-        {
-            ViewData["Message"] = "Master List of Horses";
-
-            return View();
-        }
-
-        public IActionResult Grains()
-        {
-            ViewData["Message"] = "Master List of Grains";
-
-            return View();
-        }
-
         public IActionResult Users()
         {
             ViewData["Message"] = "Master List of Users";
@@ -61,11 +54,16 @@ namespace CapitolFarmsProject.Controllers
             return View();
         }
 
-        public IActionResult Reports()
+        public async Task<IActionResult> Reports()
         {
             ViewData["Message"] = "Report List";
 
-            return View();
+            return View(await _context.HorseGrain
+                                      .Include(hg => hg.Grain)
+                                      .Include(hg => hg.Horse)
+                                      .OrderBy(hg => hg.Horse.HorseName)
+                                      .ThenBy(hg => hg.Grain.GrainName)
+                                      .ToListAsync());
         }
     }
 }
