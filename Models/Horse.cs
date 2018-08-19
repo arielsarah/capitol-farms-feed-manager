@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace CapitolFarmsProject.Models
 {
@@ -8,6 +9,8 @@ namespace CapitolFarmsProject.Models
     {
         public int HorseId {get; set;}
         public string HorseName {get; set;}
+
+        [Range(1, 19)]
         public int Location {get; set;}
         public ICollection<HorseGrain> HorseGrains {get; set;}
         
