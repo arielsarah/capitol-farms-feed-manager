@@ -21,7 +21,8 @@ namespace CapitolFarmsProject.Controllers
         // GET: Grain
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Grain.ToListAsync());
+            return View(await _context.Grain.OrderBy(g => g.GrainName).ToListAsync());
+            
         }
 
         // GET: Grain/Details/5

@@ -21,9 +21,15 @@ namespace CapitolFarmsProject.Controllers
         // GET: Horse
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Horse.ToListAsync());
+            var model = await _context.Horse.OrderBy(h => h.HorseName).ToListAsync();
+            return View(model);
         }
 
+        public async Task<IActionResult> IndexByLocation()
+        {
+            var model = await _context.Horse.OrderBy(h => h.Location).ToListAsync();
+            return View("Index", model);
+        }
         // GET: Horse/Details/5
         public async Task<IActionResult> Details(int? id)
         {

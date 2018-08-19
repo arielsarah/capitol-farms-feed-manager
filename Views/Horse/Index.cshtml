@@ -13,10 +13,14 @@
     <thead>
         <tr>
             <th>
+                <a asp-controller="Horse" asp-action="Index">
                 @Html.DisplayNameFor(model => model.HorseName)
+                </a>
             </th>
-            <th>
+            <th> 
+                <a asp-controller="Horse" asp-action="IndexByLocation">
                 @Html.DisplayNameFor(model => model.Location)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
