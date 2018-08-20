@@ -61,7 +61,7 @@ namespace CapitolFarmsProject.Controllers
             return View(await _context.HorseGrain
                                       .Include(hg => hg.Grain)
                                       .Include(hg => hg.Horse)
-                                      .OrderBy(hg => hg.Horse.HorseName)
+                                      .OrderBy(hg => hg.Horse.Location)
                                       .ThenBy(hg => hg.Grain.GrainName)
                                       .ToListAsync());
         }
