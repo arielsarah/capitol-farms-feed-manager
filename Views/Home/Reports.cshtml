@@ -1,4 +1,4 @@
-@model IEnumerable<CapitolFarmsProject.Models.HorseGrain>
+@model IEnumerable<IGrouping<string, CapitolFarmsProject.Models.HorseGrain>>
 
 @{
     ViewData["Title"] = "Index";
@@ -11,21 +11,26 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Horse)
+               @* @Html.DisplayNameFor(model => model.Horse) *@
+               Horse
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Grain)
+               @* @Html.DisplayNameFor(model => model.Grain) *@
+               Grain
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AMReport)
+                @* @Html.DisplayNameFor(model => model.AMReport)*@
+               AM 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PMReport)
+               @* @Html.DisplayNameFor(model => model.PMReport)*@
+               PM
             </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var group in Model) {
+    foreach (var item in group) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Horse.HorseName)
@@ -41,6 +46,7 @@
                 @Html.DisplayFor(modelItem => item.PMReport)
             </td>
         </tr>
+    }
 }
     </tbody>
 </table>
