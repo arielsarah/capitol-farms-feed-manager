@@ -63,7 +63,7 @@ namespace CapitolFarmsProject.Controllers
                                       .Include(hg => hg.Horse)
                                       .OrderBy(hg => hg.Horse.Location)
                                       .ThenBy(hg => hg.Grain.GrainName)
-                                      .GroupBy(keySelector: hg => hg.Horse.HorseName)
+                                      .GroupBy(keySelector: hg => hg.Horse.Location)
                                       .ToListAsync());
         }
     }
