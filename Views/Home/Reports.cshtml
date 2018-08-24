@@ -11,7 +11,7 @@
     <thead>
         <tr>
             <th>
-               @* @Html.DisplayNameFor(model => model.Horse) *@
+               @*@Html.DisplayNameFor(model => model.Horse)*@
                Horse
             </th>
             <th>
@@ -20,21 +20,30 @@
             </th>
             <th>
                 @* @Html.DisplayNameFor(model => model.AMReport)*@
-               AM 
+               AM Report
             </th>
             <th>
                @* @Html.DisplayNameFor(model => model.PMReport)*@
-               PM
+               PM Report
             </th>
         </tr>
     </thead>
     <tbody>
+@{string horse = "";}
 @foreach (var group in Model) {
     foreach (var item in group) {
         <tr>
-            <td>
+            
+            @if (horse != item.Horse.HorseName)
+            {
+                <td>
                 @Html.DisplayFor(modelItem => item.Horse.HorseName)
-            </td>
+                </td>
+                horse = item.Horse.HorseName;
+            } else {
+                <td></td>
+            }
+
             <td>
                 @Html.DisplayFor(modelItem => item.Amount)
                 @Html.DisplayFor(modelItem => item.Grain.GrainName)
