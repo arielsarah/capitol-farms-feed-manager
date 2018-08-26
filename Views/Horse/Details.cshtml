@@ -44,9 +44,12 @@
                     <li>
                     @Html.DisplayFor(model => horsegrain.Amount)
                     @Html.DisplayFor(model => horsegrain.Grain.GrainName)
+                    <a asp-controller="HorseGrain" asp-action="Edit" asp-route-id="@horsegrain.HorseGrainId">Edit</a>
+                    <a asp-controller="HorseGrain" asp-action="Delete" asp-route-id="@horsegrain.HorseGrainId">Delete</a>
                     </li>
                 }
             </ul>
+            
         </dd>
     </dl>
 </div>
