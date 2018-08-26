@@ -56,11 +56,42 @@ namespace CapitolFarmsProject.Controllers
 
         public async Task<IActionResult> Reports()
         {
-            ViewData["Message"] = "Report List";
+            ViewData["Title"] = "Combined Report";
+            ViewData["Combined Button"] = "active" ; 
 
             return View(await _context.HorseGrain
                                       .Include(hg => hg.Grain)
                                       .Include(hg => hg.Horse)
+                                      .OrderBy(hg => hg.Horse.Location)
+                                      .ThenBy(hg => hg.Grain.GrainName)
+                                      .GroupBy(keySelector: hg => hg.Horse.Location)
+                                      .ToListAsync());
+        }
+
+        public async Task<IActionResult> AMReport()
+        {
+            ViewData["Title"] = "AM Report";
+            ViewData["AM Button"] = "active" ;
+
+            return View("Reports", await _context.HorseGrain
+                                      .Include(hg => hg.Grain)
+                                      .Include(hg => hg.Horse)
+                                      .Where(hg => hg.AMReport)
+                                      .OrderBy(hg => hg.Horse.Location)
+                                      .ThenBy(hg => hg.Grain.GrainName)
+                                      .GroupBy(keySelector: hg => hg.Horse.Location)
+                                      .ToListAsync());
+        }
+
+        public async Task<IActionResult> PMReport()
+        {
+            ViewData["Title"] = "PM Report";
+            ViewData["PM Button"] = "active" ;
+
+            return View("Reports", await _context.HorseGrain
+                                      .Include(hg => hg.Grain)
+                                      .Include(hg => hg.Horse)
+                                      .Where(hg => hg.PMReport)
                                       .OrderBy(hg => hg.Horse.Location)
                                       .ThenBy(hg => hg.Grain.GrainName)
                                       .GroupBy(keySelector: hg => hg.Horse.Location)
