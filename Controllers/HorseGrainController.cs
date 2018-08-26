@@ -48,11 +48,20 @@ namespace CapitolFarmsProject.Controllers
         }
 
         // GET: HorseGrain/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create(int? id)
         {
-            
-
-            return View(new HorseGrainViewModel(_context));
+            var horsegrain = new HorseGrain();
+            if (id != null)
+            {
+                var horse = await _context.Horse.FindAsync(id);
+                if (horse == null)
+                    {
+                        return NotFound();
+                    }
+                horsegrain.HorseId = horse.HorseId;
+            }
+            return View(new HorseGrainViewModel(_context, horsegrain));
+        
         }
 
         // POST: HorseGrain/Create
