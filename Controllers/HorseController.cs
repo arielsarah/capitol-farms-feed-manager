@@ -39,6 +39,8 @@ namespace CapitolFarmsProject.Controllers
             }
 
             var horse = await _context.Horse
+                .Include(m => m.HorseGrains)
+                    .ThenInclude(m => m.Grain)
                 .FirstOrDefaultAsync(m => m.HorseId == id);
             if (horse == null)
             {
