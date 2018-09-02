@@ -81,13 +81,14 @@ namespace CapitolFarmsProject.Controllers
         }
 
         // GET: HorseGrain/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? id, int? returnId)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            ViewData["returnId"] = returnId;
             var horseGrain = await _context.HorseGrain.FindAsync(id);
             if (horseGrain == null)
             {
@@ -132,13 +133,13 @@ namespace CapitolFarmsProject.Controllers
         }
 
         // GET: HorseGrain/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? returnId)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
+            ViewData["returnId"] = returnId;
             var horseGrain = await _context.HorseGrain.Include(hg => hg.Grain).Include(hg => hg.Horse)
                 .FirstOrDefaultAsync(m => m.HorseGrainId == id);
             if (horseGrain == null)

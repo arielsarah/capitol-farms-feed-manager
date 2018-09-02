@@ -46,6 +46,10 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="HorseGrainId" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        @if (ViewData["returnId"] == null)
+            {<a asp-action="Index">Back to List</a>}
+        else {
+            <a asp-controller="Horse" asp-action="Details" asp-route-id="@ViewData["returnId"]">Back to Horse</a>
+        }
     </form>
 </div>
