@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CapitolFarmsProject.Models
 {
-    public class CapitolFarmsProjectContext : DbContext
+    public class CapitolFarmsProjectContext : IdentityDbContext
     {
         public CapitolFarmsProjectContext (DbContextOptions<CapitolFarmsProjectContext> options)
             : base(options)
@@ -15,6 +16,8 @@ namespace CapitolFarmsProject.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<HorseGrain>(entity =>
             {
                 entity.HasOne(d => d.Horse)
