@@ -12,7 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using CapitolFarmsProject.Models;
-
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CapitolFarmsProject
 {
@@ -41,7 +42,13 @@ namespace CapitolFarmsProject
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<CapitolFarmsProjectContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                .RequireAuthenticatedUser()
+                                .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
           
         }
@@ -62,6 +69,9 @@ namespace CapitolFarmsProject
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
+
 
             app.UseMvc(routes =>
             {
