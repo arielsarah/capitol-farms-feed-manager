@@ -3,12 +3,12 @@
 }
 
 <div class="col-md-3">
-        <h2><a asp-controller="Public" asp-action="Login">Login</a></h2>
+        <h2><a asp-area="Identity" asp-page="/Account/Login">Login</a></h2>
     </div>
 
 
     <div class="col-md-3">
-        <h2>Reports</h2>
+        <h2><a asp-controller="Home" asp-action="Reports">Reports</a></h2>
         <ul>
             <li>AM Feed Report</li>
             <li>PM Feed Report</li>

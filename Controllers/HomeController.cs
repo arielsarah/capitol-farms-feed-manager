@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CapitolFarmsProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CapitolFarmsProject.Controllers
 {
@@ -54,6 +55,7 @@ namespace CapitolFarmsProject.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Reports()
         {
             ViewData["Title"] = "Combined Report";
@@ -68,6 +70,7 @@ namespace CapitolFarmsProject.Controllers
                                       .ToListAsync());
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> AMReport()
         {
             ViewData["Title"] = "AM Report";
@@ -83,6 +86,7 @@ namespace CapitolFarmsProject.Controllers
                                       .ToListAsync());
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> PMReport()
         {
             ViewData["Title"] = "PM Report";
